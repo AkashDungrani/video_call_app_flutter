@@ -1,5 +1,9 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
+
+import '../../controller/camer_provider.dart';
 
 class VideoPage extends StatefulWidget {
   const VideoPage({super.key});
@@ -9,10 +13,11 @@ class VideoPage extends StatefulWidget {
 }
 
 class _VideoPageState extends State<VideoPage> {
-  late VideoPlayerController videoPlayerController;
+  late VideoPlayerController _controller;
 
   getVideo() {
-    videoPlayerController = VideoPlayerController.asset("assets/video/demo.mp4")
+    _controller = VideoPlayerController.network(
+        "https://drive.google.com/uc?export=download&id=1Epb1YvmKY9MJwHcfMTmqFckoNx0lvQMa")
       ..initialize().then((value) {
         setState(() {});
       });
@@ -21,7 +26,7 @@ class _VideoPageState extends State<VideoPage> {
   @override
   void dispose() {
     super.dispose();
-    videoPlayerController.dispose();
+    _controller.dispose();
   }
 
   @override
@@ -29,6 +34,12 @@ class _VideoPageState extends State<VideoPage> {
     // TODO: implement initState
     super.initState();
     getVideo();
+    getdata();
+  }
+
+  getdata() {
+    Provider.of<ReProvider>(context, listen: false)
+        .updateIndex(i: 1, mounted: mounted);
   }
 
   @override
@@ -36,31 +47,91 @@ class _VideoPageState extends State<VideoPage> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.black,
-      // appBar: AppBar(title: Text("VideoCall Page")),
-      body: Container(
-        height: height,
-        width: width,
-        child: videoPlayerController.value.isInitialized
-            ? AspectRatio(
-                aspectRatio: videoPlayerController.value.aspectRatio,
-                child: VideoPlayer(videoPlayerController),
-              )
-            : Container(),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            videoPlayerController.value.isPlaying
-                ? videoPlayerController.pause()
-                : videoPlayerController.play();
-          });
-        },
-        child: Icon(
-          videoPlayerController.value.isPlaying
-              ? Icons.pause
-              : Icons.play_arrow,
-        ),
+      body: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height,
+            child: _controller.value.isInitialized
+                ? AspectRatio(
+                    aspectRatio: _controller.value.aspectRatio,
+                    child: VideoPlayer(_controller),
+                  )
+                : Container(),
+          ),
+          Consumer<ReProvider>(
+            builder: (context, value, child) {
+              return (value.cameraController.value.isInitialized)
+                  ? Align(
+                      alignment: Alignment(0.8, 0.65),
+                      child: Container(
+                        height: 160,
+                        width: 110,
+                        child: CameraPreview(value.cameraController),
+                      ),
+                    )
+                  : SizedBox();
+            },
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    height: 50,
+                    width: 50,
+                    child: FloatingActionButton(
+                      onPressed: () {},
+                      backgroundColor: Colors.black54,
+                      mini: true,
+                      child: Icon(
+                        Icons.mic,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: 70,
+                    width: 70,
+                    child: FloatingActionButton(
+                      onPressed: () {},
+                      backgroundColor: Colors.red,
+                      isExtended: true,
+                      child: Icon(
+                        Icons.call,
+                        size: 28,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: 50,
+                    width: 50,
+                    child: Consumer<ReProvider>(
+                      builder: (context, value, child) {
+                        return FloatingActionButton(
+                          onPressed: () {
+                            (value.index == 1)
+                                ? value.updateIndex(i: 0, mounted: mounted)
+                                : value.updateIndex(i: 1, mounted: mounted);
+                          },
+                          backgroundColor: Colors.black54,
+                          mini: true,
+                          child: Icon(
+                            Icons.flip_camera_ios_rounded,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 15,
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

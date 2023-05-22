@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
         title: Text("Random Video Call"),
       ),
       body: Container(
-        padding: EdgeInsets.only(left: 5, right: 5),
+        padding: EdgeInsets.only(left: height*0.002, right: height * 0.002),
         height: height,
         width: width,
         child: SingleChildScrollView(
@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
               height: height * 0.12,
               width: width*0.96,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(height*0.015),
                 color: Colors.blue.shade300,
                  boxShadow: [
                   BoxShadow(
@@ -51,17 +51,17 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           "Video Call",
                           style: TextStyle(
-                              fontWeight: FontWeight.w700, fontSize: 20),
+                              fontWeight: FontWeight.w700, fontSize: height * 0.022),
                         ),
                         Text(
                           "Instant Connect by Video calls ",
                           style: TextStyle(
-                              fontWeight: FontWeight.normal, fontSize: 16),
+                              fontWeight: FontWeight.normal, fontSize: height * 0.017),
                         ),
                         Text(
                           "anytime And anywhere ",
                           style: TextStyle(
-                              fontWeight: FontWeight.normal, fontSize: 16),
+                              fontWeight: FontWeight.normal, fontSize: height * 0.017),
                         ),
                       ],
                     )),
@@ -83,7 +83,7 @@ class _HomePageState extends State<HomePage> {
               height: height * 0.12,
               width: width*0.96,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(height * 0.015),
                 color: Colors.amber,
                  boxShadow: [
                   BoxShadow(
@@ -109,17 +109,17 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           "Girls Photos",
                           style: TextStyle(
-                              fontWeight: FontWeight.w700, fontSize: 20),
+                              fontWeight: FontWeight.w700, fontSize: height * 0.022),
                         ),
                         Text(
                           "Show latest images anytime ",
                           style: TextStyle(
-                              fontWeight: FontWeight.normal, fontSize: 16),
+                              fontWeight: FontWeight.normal, fontSize: height * 0.017),
                         ),
                         Text(
                           " And anywhere ",
                           style: TextStyle(
-                              fontWeight: FontWeight.normal, fontSize: 16),
+                              fontWeight: FontWeight.normal, fontSize:  height * 0.017),
                         ),
                       ],
                     )),
@@ -141,7 +141,7 @@ class _HomePageState extends State<HomePage> {
               height: height * 0.12,
               width: width*0.96,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(height * 0.015),
                 color: Colors.pink.shade400,
                 boxShadow: [
                   BoxShadow(
@@ -167,17 +167,17 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           "Live Video",
                           style: TextStyle(
-                              fontWeight: FontWeight.w700, fontSize: 20),
+                              fontWeight: FontWeight.w700, fontSize:  height * 0.022),
                         ),
                         Text(
                           "Show latest images anytime ",
                           style: TextStyle(
-                              fontWeight: FontWeight.normal, fontSize: 16),
+                              fontWeight: FontWeight.normal, fontSize:  height * 0.017),
                         ),
                         Text(
                           " And anywhere ",
                           style: TextStyle(
-                              fontWeight: FontWeight.normal, fontSize: 16),
+                              fontWeight: FontWeight.normal, fontSize:  height * 0.017),
                         ),
                       ],
                     )),
@@ -191,7 +191,7 @@ class _HomePageState extends State<HomePage> {
               height: height * 0.18,
               width: width*0.95,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(height * 0.015),
                 color: Colors.grey.shade300,
                 boxShadow: [
                   BoxShadow(
@@ -206,10 +206,10 @@ class _HomePageState extends State<HomePage> {
               height: height * 0.01,
             ),
             Container(
-              height: height * 0.17,
+              height: height * 0.14,
               width: width * 0.96,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(height * 0.015),
                 color: Colors.deepPurple.shade400,
                 boxShadow: [
                   BoxShadow(
@@ -235,17 +235,17 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           "Share App To Friends",
                           style: TextStyle(
-                              fontWeight: FontWeight.w700, fontSize: 20),
+                              fontWeight: FontWeight.w700, fontSize:  height * 0.022),
                         ),
                         Text(
                           "Share our app to your Friends",
                           style: TextStyle(
-                              fontWeight: FontWeight.normal, fontSize: 16),
+                              fontWeight: FontWeight.normal, fontSize:  height * 0.017),
                         ),
                         Text(
                           "Refer Your Frnd",
                           style: TextStyle(
-                              fontWeight: FontWeight.normal, fontSize: 16),
+                              fontWeight: FontWeight.normal, fontSize:  height * 0.017),
                         ),
                       ],
                     )),
@@ -259,7 +259,7 @@ class _HomePageState extends State<HomePage> {
               height: height * 0.12,
               width: width*0.96,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(height * 0.015),
                 color: Colors.orangeAccent.shade400,
                 boxShadow: [
                   BoxShadow(
@@ -285,17 +285,17 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           "Rate Our App",
                           style: TextStyle(
-                              fontWeight: FontWeight.w700, fontSize: 20),
+                              fontWeight: FontWeight.w700, fontSize:  height * 0.022),
                         ),
                         Text(
                           "Show latest images anytime ",
                           style: TextStyle(
-                              fontWeight: FontWeight.normal, fontSize: 16),
+                              fontWeight: FontWeight.normal, fontSize:  height * 0.017),
                         ),
                         Text(
                           " And anywhere ",
                           style: TextStyle(
-                              fontWeight: FontWeight.normal, fontSize: 16),
+                              fontWeight: FontWeight.normal, fontSize:  height * 0.017),
                         ),
                       ],
                     )),

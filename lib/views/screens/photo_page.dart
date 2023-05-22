@@ -28,8 +28,8 @@ class _PhotoPageState extends State<PhotoPage> {
         itemBuilder: (context, index) {
           return Container(
             decoration: BoxDecoration(image: DecorationImage(image: NetworkImage(girlimage[index]))),
-            // child: Image.network(
-            //     girlimage[index],fit: BoxFit.fill,),
+            child: Image.network(
+                girlimage[index],fit: BoxFit.fill,),
           );
           //  Image.network("https://drive.google.com/uc?export=view&id=${girlimage[index]}");
         },
